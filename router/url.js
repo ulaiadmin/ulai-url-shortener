@@ -30,7 +30,7 @@ router.get("/:shortId", async (req, res) => {
     res.redirect(entry.redirectURL);
   }
 });
-router.get("/", async (req, res) => {
+router.get("*", async (req, res) => {
   const shortId = req.url;
   console.log("shortId",req)
   if (shortId.includes("https://")) {
