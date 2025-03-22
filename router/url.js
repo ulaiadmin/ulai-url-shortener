@@ -32,7 +32,7 @@ router.get("/:shortId", async (req, res) => {
 });
 router.get("/", async (req, res) => {
   const shortId = req.url;
-  console.log("shortId",req.url)
+  console.log("shortId",req)
   if (shortId.includes("https://")) {
     res.redirect(req.url);
   } else {
