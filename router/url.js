@@ -11,7 +11,7 @@ router.post("/create", handleGenerateNewShortURL);
 router.get("/analytics/:userId", handleGetAnalytics);
 router.get("/:shortId", async (req, res) => {
   const shortId = req.params.shortId;
-  console.log("shortId",req.params)
+  console.log("shortId",req)
   if (shortId.includes("https://")) {
     res.redirect(shortId);
   } else {
