@@ -36,19 +36,19 @@ router.get("*", async (req, res) => {
   if (shortId.includes("https://")) {
     res.redirect(req.url.slice(1,4356));
   } else {
-    const entry = await short_url_trackers.findOneAndUpdate(
-      {
-        shortId,
-      },
-      {
-        $push: {
-          visitHistory: {
-            timestamp: new Date(),
-          },
-        },
-      }
-    );
-    res.redirect(entry.redirectURL);
+    // const entry = await short_url_trackers.findOneAndUpdate(
+    //   {
+    //     shortId,
+    //   },
+    //   {
+    //     $push: {
+    //       visitHistory: {
+    //         timestamp: new Date(),
+    //       },
+    //     },
+    //   }
+    // );
+    // res.redirect(entry.redirectURL);
   }
 });
 
