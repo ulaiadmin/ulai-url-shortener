@@ -32,9 +32,9 @@ router.get("/:shortId", async (req, res) => {
 });
 router.get("*", async (req, res) => {
   const shortId = req.url;
-  console.log("shortId",req)
+  console.log("shortId",req.url)
   if (shortId.includes("https://")) {
-    res.redirect(req.url);
+    res.redirect(req.url.slice(1,4356));
   } else {
     const entry = await short_url_trackers.findOneAndUpdate(
       {
