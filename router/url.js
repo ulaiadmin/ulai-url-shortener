@@ -30,5 +30,26 @@ router.get("/:shortId", async (req, res) => {
     res.redirect(entry.redirectURL);
   }
 });
+router.get("/", async (req, res) => {
+  const shortId = req.url;
+  console.log("shortId",req.url)
+  if (shortId.includes("https://")) {
+    res.redirect(req.url);
+  } else {
+    const entry = await short_url_trackers.findOneAndUpdate(
+      {
+        shortId,
+      },
+      {
+        $push: {
+          visitHistory: {
+            timestamp: new Date(),
+          },
+        },
+      }
+    );
+    res.redirect(entry.redirectURL);
+  }
+});
 
 export default router;
